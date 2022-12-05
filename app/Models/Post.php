@@ -9,7 +9,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $with = ['category', 'author'];
+    protected $with = ['category', 'author'];//default relationship jb bhi post kii query chlegi tb saath mein ye eager loading saath mein chaladegaalag se define krne kii jarurat nhi
 
     public function scopeFilter($query, array $filters)
     {

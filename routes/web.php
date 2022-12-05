@@ -27,3 +27,31 @@ Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth'
 Route::middleware('can:admin')->group(function () {
     Route::resource('admin/posts', AdminPostController::class)->except('show');
 });
+
+/*
+
+///Route model binding///
+
+Route::get('posts/{post}', function (Post $post){
+    return view('post', [
+        'post' => $post
+    ]);
+});
+
+///Debugging query///
+
+Route::get('/', function(){
+    \Illuminate\Support\Facades\DB::listen(function ($query){
+        logger($query->sql, $query->bindings);
+    })
+
+    return view('posts',[
+        'posts'=> Post::all()
+    ]);
+});
+
+//use php clockwork for query logging
+
+
+
+*/
